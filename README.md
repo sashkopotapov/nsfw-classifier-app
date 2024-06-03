@@ -8,57 +8,6 @@ The primary goal of this project is to enhance app safety by filtering or blurri
 
 For a detailed explanation of the project, refer to the [Medium article](https://medium.com/@opotapov.business/enhancing-ios-app-safety-with-local-nsfw-detection-using-coreml-and-vision-framework-016c13d1cd98).
 
-## Features
-
-- Scrape and prepare a dataset of SFW and NSFW images.
-- Train a detection model using CreateML.
-- Integrate the model into an iOS app using CoreML and Vision frameworks.
-- Implement functionality to classify and blur NSFW images.
-
-## Getting Started
-
-### Prerequisites
-
-- Xcode
-- Docker (for dataset preparation)
-- An iOS device (CoreML does not work in the simulator)
-
-### Installation
-
-1. **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/your-username/nsfw-classifier-app.git
-    cd nsfw-classifier-app
-    ```
-
-2. **Prepare the dataset:**
-
-    Follow these steps to scrape and prepare the dataset using the provided Docker script:
-
-    ```bash
-    git clone https://github.com/alex000kim/nsfw_data_scraper.git
-    cd nsfw_data_scraper
-    docker build . -t docker_nsfw_data_scraper
-    docker run -v $(pwd):/root/nsfw_data_scraper docker_nsfw_data_scraper scripts/runall.sh
-    ```
-
-    After the scraping process, organize the images into `sfw` and `nsfw` folders as described in the [article](https://medium.com/example-link).
-
-3. **Train the model:**
-
-    Open CreateML:
-
-    - Open Xcode.
-    - Navigate to Xcode → Open Developer Tool → Create ML.
-    - Create a new Image Classification project.
-    - Use the prepared dataset for training and testing.
-    - Export the trained model as a `.mlmodel` file.
-
-4. **Add the model to the project:**
-
-    Drag the exported `.mlmodel` file into your Xcode project.
-
 ### Usage
 
 1. **Open the project in Xcode:**
